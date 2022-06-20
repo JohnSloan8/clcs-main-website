@@ -1,43 +1,43 @@
-import AddTaskIcon from '@mui/icons-material/AddTask';
-import BugReportIcon from '@mui/icons-material/BugReport';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import EmailIcon from '@mui/icons-material/Email';
+import GroupsIcon from '@mui/icons-material/Groups';
+import HelpIcon from '@mui/icons-material/Help';
 import HomeIcon from '@mui/icons-material/Home';
-import TerrainIcon from '@mui/icons-material/Terrain';
+import SearchIcon from '@mui/icons-material/Search';
 
 import asyncComponentLoader from '@/utils/loader';
 
 import { Pages, Routes } from './types';
 
 const routes: Routes = {
-  [Pages.Welcome]: {
-    component: asyncComponentLoader(() => import('@/pages/Welcome')),
+  [Pages.Home]: {
+    component: asyncComponentLoader(() => import('@/pages/Home')),
     path: '/',
-    title: 'Welcome',
+    title: 'Home',
     icon: HomeIcon,
   },
-  [Pages.Page1]: {
-    component: asyncComponentLoader(() => import('@/pages/Page1')),
-    path: '/page-1',
-    title: 'Page 1',
-    icon: GitHubIcon,
+  [Pages.About]: {
+    component: asyncComponentLoader(() => import('@/pages/About')),
+    path: '/about',
+    title: 'About',
+    icon: HelpIcon,
   },
-  [Pages.Page2]: {
-    component: asyncComponentLoader(() => import('@/pages/Page2')),
-    path: '/page-2',
-    title: 'Page 2',
-    icon: AddTaskIcon,
+  [Pages.Team]: {
+    component: asyncComponentLoader(() => import('@/pages/Team')),
+    path: '/team',
+    title: 'Team',
+    icon: GroupsIcon,
   },
-  [Pages.Page3]: {
-    component: asyncComponentLoader(() => import('@/pages/Page3')),
-    path: '/page-3',
-    title: 'Page 3',
-    icon: TerrainIcon,
+  [Pages.Contact]: {
+    component: asyncComponentLoader(() => import('@/pages/Contact')),
+    path: '/contact',
+    title: 'Contact',
+    icon: EmailIcon,
   },
-  [Pages.Page4]: {
-    component: asyncComponentLoader(() => import('@/pages/Page4')),
-    path: '/page-4',
-    title: 'Page 4',
-    icon: BugReportIcon,
+  [Pages.Search]: {
+    component: asyncComponentLoader(() => import('@/pages/Search')),
+    path: '/search',
+    title: 'Search',
+    icon: SearchIcon,
   },
   [Pages.NotFound]: {
     component: asyncComponentLoader(() => import('@/pages/NotFound')),
