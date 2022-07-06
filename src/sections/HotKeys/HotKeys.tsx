@@ -25,7 +25,7 @@ function HotKeys() {
   useHotkeys('alt+/', hotKeysDialogActions.toggle);
 
   return (
-    <Dialog fullWidth maxWidth="xs" onClose={hotKeysDialogActions.close} open={isHotKeysDialogOpen}>
+    <Dialog fullWidth maxwidth="xs" onClose={hotKeysDialogActions.close} open={isHotKeysDialogOpen}>
       <DialogTitle>Hot Keys</DialogTitle>
       <DialogContent>
         <FlexBox alignItems="center" height={50} justifyContent="space-between">

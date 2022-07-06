@@ -32,8 +32,8 @@ const ClickCard = ({
       }}
     >
       <CardActionArea onClick={onClick}>
-        <CardContent sx={{ flexGrow: 1, py: padding, color: color }}>
-          <Typography gutterBottom variant="h5" component="h2" align="center">
+        <CardContent sx={{ flexGrow: 1, py: padding }}>
+          <Typography gutterBottom variant="h5" component="h2" align="center" color={color}>
             {title}
           </Typography>
           <Typography align="center">{description}</Typography>

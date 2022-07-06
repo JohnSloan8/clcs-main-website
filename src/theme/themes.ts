@@ -1,3 +1,4 @@
+import { blue, deepOrange } from '@mui/material/colors';
 import { ThemeOptions } from '@mui/material/styles';
 import { deepmerge } from '@mui/utils';
 
@@ -44,7 +45,14 @@ const themes: Record<Themes, ThemeOptions> = {
         paper: '#fff',
       },
       primary: {
-        main: '#3f51b5',
+        main: blue[800],
+        dark: blue[900],
+        light: blue[200],
+      },
+      secondary: {
+        main: deepOrange[800],
+        dark: deepOrange[900],
+        light: deepOrange[200],
       },
     },
   }),

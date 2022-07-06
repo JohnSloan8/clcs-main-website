@@ -39,6 +39,10 @@ const routes: Routes = {
     title: 'Search',
     icon: SearchIcon,
   },
+  [Pages.Test]: {
+    component: asyncComponentLoader(() => import('@/pages/Test')),
+    path: '/test',
+  },
   [Pages.NotFound]: {
     component: asyncComponentLoader(() => import('@/pages/NotFound')),
     path: '*',

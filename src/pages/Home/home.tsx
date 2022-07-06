@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -9,6 +8,7 @@ import Typography from '@mui/material/Typography';
 
 import ClickCard from '@/components/ClickCard';
 import Meta from '@/components/Meta';
+import { FullSizeBox } from '@/components/styled';
 
 function Welcome() {
   // const isPortrait = useOrientation();
@@ -20,21 +20,21 @@ function Welcome() {
     ['SEARCH', 'Find a specific test'],
   ];
   const navigate = useNavigate();
-  const cardClick = (route) => {
+  const cardClick = (route: string) => {
     console.log('route:', route);
     navigate('/' + route.toLowerCase());
   };
   return (
     <>
       <Meta title="Welcome" />
-      <Box
+      <FullSizeBox
         sx={{
           bgcolor: 'background.paper',
           pt: 8,
           pb: 6,
         }}
       >
-        <Container maxWidth="sm">
+        <Container maxWidth="md">
           <Typography component="h1" variant="h2" align="center" color="text.primary" gutterBottom>
             Testing Suite
           </Typography>
@@ -44,7 +44,7 @@ function Welcome() {
           </Typography>
         </Container>
 
-        <Container sx={{ py: 4 }} maxWidth="md">
+        <Container sx={{ py: 4 }} maxWidth="sm">
           {/* End hero unit */}
           <Grid container spacing={4}>
             {cards.map((card) => (
@@ -54,6 +54,7 @@ function Welcome() {
                   description={card[1]}
                   padding={8}
                   onClick={() => cardClick(card[0])}
+                  color="primary.dark"
                 />
               </Grid>
             ))}
@@ -63,7 +64,7 @@ function Welcome() {
           <Button variant="contained">Register for Access</Button>
           {/* <Button variant="outlined">Secondary action</Button> */}
         </Stack>
-      </Box>
+      </FullSizeBox>
     </>
   );
 }

@@ -24,6 +24,11 @@ function App() {
         <Sidebar />
         <Pages />
       </BrowserRouter>
+      {/* should move this elsewhere later */}
+      <link
+        href="https://fonts.googleapis.com/css2?family=Aladin&family=Dancing+Script&display=swap"
+        rel="stylesheet"
+      />
     </Fragment>
   );
 }
