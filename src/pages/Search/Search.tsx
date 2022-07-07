@@ -1,12 +1,12 @@
-import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import IconButton from '@mui/material/IconButton';
+import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 
 import Meta from '@/components/Meta';
 import SelectTest from '@/components/SelectTest';
 import Tests from '@/components/Tests';
-import { CenteredFlexBox, FullSizeBox } from '@/components/styled';
+import { CenteredFlexBox } from '@/components/styled';
 import {
   useLanguage,
   useLanguages,
@@ -43,54 +43,48 @@ function Search() {
   return (
     <>
       <Meta title="search" />
-      <FullSizeBox
-        sx={{
-          bgcolor: 'background.paper',
-          pt: 8,
-          pb: 6,
-        }}
-      >
-        <Container maxwidth="sm">
-          <Typography component="h1" variant="h2" align="center" color="text.primary" gutterBottom>
-            Search Tests
-          </Typography>
-        </Container>
-        <CenteredFlexBox>
-          <IconButton
-            onClick={resetSearch}
-            size="large"
-            edge="start"
-            color="primary"
-            aria-label="menu"
-          >
-            <RestartAltIcon />
-          </IconButton>
-        </CenteredFlexBox>
-        <CenteredFlexBox sx={{ pb: 4 }}>
-          <SelectTest
-            selectFor="language"
-            listOfItems={languages}
-            currentSelected={language}
-            setSelected={setLanguages}
-            onClick={changeTest}
-          />
-          <SelectTest
-            selectFor="level"
-            listOfItems={levels}
-            currentSelected={level}
-            setSelected={setLevels}
-            onClick={changeTest}
-          />
-          <SelectTest
-            selectFor="test-type"
-            listOfItems={testTypes}
-            currentSelected={testType}
-            setSelected={setTestTypes}
-            onClick={changeTest}
-          />
-        </CenteredFlexBox>
-        <Tests />
-      </FullSizeBox>
+      <Container maxWidth="sm" sx={{ pt: 4 }}>
+        <Typography component="h1" variant="h4" align="center" color="text.primary" gutterBottom>
+          Search
+        </Typography>
+      </Container>
+      <Container maxWidth="md">
+        <Grid container align="center">
+          <Grid item xs={12} sm={4}>
+            <SelectTest
+              selectFor="language"
+              listOfItems={languages}
+              currentSelected={language}
+              setSelected={setLanguages}
+              onClick={changeTest}
+            />
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <SelectTest
+              selectFor="level"
+              listOfItems={levels}
+              currentSelected={level}
+              setSelected={setLevels}
+              onClick={changeTest}
+            />
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <SelectTest
+              selectFor="test-type"
+              listOfItems={testTypes}
+              currentSelected={testType}
+              setSelected={setTestTypes}
+              onClick={changeTest}
+            />
+          </Grid>
+        </Grid>
+      </Container>
+      <Tests />
+      <CenteredFlexBox mt={4}>
+        <Button variant="outlined" size="large" onClick={resetSearch}>
+          reset all
+        </Button>
+      </CenteredFlexBox>
     </>
   );
 }

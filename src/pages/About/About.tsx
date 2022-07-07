@@ -1,21 +1,17 @@
+import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import Meta from '@/components/Meta';
-import { FullSizeBox } from '@/components/styled';
 
 function About() {
   return (
     <>
       <Meta title="about" />
-      <FullSizeBox
-        sx={{
-          bgcolor: 'background.paper',
-          pt: 8,
-          pb: 6,
-        }}
-      >
-        <Typography variant="h3">About</Typography>
-      </FullSizeBox>
+      <Container maxWidth="sm" sx={{ pt: 4 }}>
+        <Typography component="h1" variant="h4" align="center" color="text.primary" gutterBottom>
+          About
+        </Typography>
+      </Container>
     </>
   );
 }

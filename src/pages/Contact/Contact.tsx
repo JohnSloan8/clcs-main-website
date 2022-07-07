@@ -3,17 +3,17 @@ import Typography from '@mui/material/Typography';
 
 import Meta from '@/components/Meta';
 
-function Team() {
+function Contact() {
   return (
     <>
-      <Meta title="page 3" />
+      <Meta title="contact" />
       <Container maxWidth="sm" sx={{ pt: 4 }}>
         <Typography component="h1" variant="h4" align="center" color="text.primary" gutterBottom>
-          Team
+          Contact
         </Typography>
       </Container>
     </>
   );
 }
 
-export default Team;
+export default Contact;

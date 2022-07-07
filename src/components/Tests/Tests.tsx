@@ -74,7 +74,7 @@ const Tests = () => {
   };
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" sx={{ my: 2 }}>
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>

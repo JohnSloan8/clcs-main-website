@@ -42,7 +42,7 @@ const testsDisplayState = atom({
 
 const apiURLState = atom({
   key: 'apiURLState',
-  default: 'http://localhost:1337/',
+  default: 'https://clcs-strapi-backend.herokuapp.com/',
 });
 
 const currentTestState = atom({

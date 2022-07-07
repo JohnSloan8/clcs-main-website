@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 
 import ClickCard from '@/components/ClickCard';
 import Meta from '@/components/Meta';
-import { FullSizeBox } from '@/components/styled';
 
 function Welcome() {
   // const isPortrait = useOrientation();
@@ -27,44 +26,43 @@ function Welcome() {
   return (
     <>
       <Meta title="Welcome" />
-      <FullSizeBox
-        sx={{
-          bgcolor: 'background.paper',
-          pt: 8,
-          pb: 6,
-        }}
-      >
-        <Container maxWidth="md">
-          <Typography component="h1" variant="h2" align="center" color="text.primary" gutterBottom>
-            Testing Suite
-          </Typography>
-          <Typography variant="h5" align="center" color="text.secondary" paragraph>
-            A collection of language testing tools from the Centre for Language and Communication
-            Studies
-          </Typography>
-        </Container>
+      <Container maxWidth="md">
+        <Typography
+          component="h1"
+          variant="h2"
+          align="center"
+          color="text.primary"
+          gutterBottom
+          sx={{ pt: 8 }}
+        >
+          Testing Suite
+        </Typography>
+        <Typography variant="h5" align="center" color="text.secondary" paragraph>
+          A collection of language testing tools from the Centre for Language and Communication
+          Studies
+        </Typography>
+      </Container>
 
-        <Container sx={{ py: 4 }} maxWidth="sm">
-          {/* End hero unit */}
-          <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={6}>
-                <ClickCard
-                  title={card[0]}
-                  description={card[1]}
-                  padding={8}
-                  onClick={() => cardClick(card[0])}
-                  color="primary.dark"
-                />
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-        <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">
-          <Button variant="contained">Register for Access</Button>
-          {/* <Button variant="outlined">Secondary action</Button> */}
-        </Stack>
-      </FullSizeBox>
+      <Container sx={{ py: 4 }} maxWidth="sm">
+        {/* End hero unit */}
+        <Grid container spacing={4}>
+          {cards.map((card) => (
+            <Grid item key={card} xs={12} sm={6} md={6}>
+              <ClickCard
+                title={card[0]}
+                description={card[1]}
+                padding={8}
+                onClick={() => cardClick(card[0])}
+                color="primary.dark"
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+      <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">
+        <Button variant="contained">Register for Access</Button>
+        {/* <Button variant="outlined">Secondary action</Button> */}
+      </Stack>
     </>
   );
 }

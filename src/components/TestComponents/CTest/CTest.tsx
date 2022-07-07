@@ -16,7 +16,7 @@ const CTest = () => {
 
   return (
     <Container maxWidth="md">
-      <Card sx={{ minWidth: 275, m: 4 }}>
+      <Card sx={{ m: 2 }}>
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Exercise
@@ -26,7 +26,7 @@ const CTest = () => {
           </Typography>
         </CardContent>
       </Card>
-      <Card sx={{ minWidth: 275, m: 4 }}>
+      <Card sx={{ m: 2 }}>
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Answer

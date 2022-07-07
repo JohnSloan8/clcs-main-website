@@ -18,7 +18,7 @@ const Dictation = () => {
 
   return (
     <Container maxWidth="md">
-      <Card sx={{ m: 4 }}>
+      <Card sx={{ m: 2 }}>
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Recording
@@ -31,7 +31,7 @@ const Dictation = () => {
           </CenteredFlexBox>
         </CardContent>
       </Card>
-      <Card sx={{ m: 4 }}>
+      <Card sx={{ m: 2 }}>
         <CardContent>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Answer
