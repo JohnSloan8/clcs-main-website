@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,6 +14,7 @@ import TableRow from '@mui/material/TableRow';
 
 import axios from 'axios';
 
+import DisplayTest from '@/models/DisplayTest';
 import {
   useApiURL,
   useCurrentTest,
@@ -22,11 +24,6 @@ import {
   useTests,
   useTestsDisplay,
 } from '@/store/search';
-
-interface Test {
-  id: number;
-  attributes: Record<string, unknown>;
-}
 
 const Tests = () => {
   const apiURLBase = useApiURL() + 'api/';
@@ -42,12 +39,25 @@ const Tests = () => {
     const apiURL = apiURLBase + 'tests?populate=%2A';
     const getData = () => {
       axios.get(apiURL).then((data) => {
-        const tempArray: string[] = [];
-        data.data.data.forEach((d: Test) => {
-          tempArray.push(d);
+        const tempArray: DisplayTest[] = [];
+        data.data.data.forEach((d: any) => {
+          const newDisplayTestObject: DisplayTest = {
+            id: d.id,
+            text: d.attributes.text,
+            blanks: d.attributes.blanks,
+            title: d.attributes.title,
+            language: d.attributes.language.data.attributes.name,
+            level: d.attributes.level.data.attributes.name,
+            test_type: d.attributes.test_type.data.attributes.name,
+            url:
+              d.attributes.recording.data !== null
+                ? d.attributes.recording.data.attributes.url
+                : 'none',
+          };
+          tempArray.push(newDisplayTestObject);
         });
-        setTests([...tests, ...tempArray]);
-        setTestsDisplay([...tests, ...tempArray]);
+        setTests(tempArray);
+        setTestsDisplay(tempArray);
       });
     };
     if (tests.length === 0) {
@@ -57,18 +67,17 @@ const Tests = () => {
 
   useEffect(() => {
     console.log('updating test list');
-    const tempTestsDisplay = tests.filter((t) => {
+    const tempTestsDisplay = tests.filter((t: DisplayTest) => {
       return (
-        (t.attributes.language.data.attributes.name === language || language === 'All') &&
-        (t.attributes.level.data.attributes.name === level || level === 'All') &&
-        (t.attributes.test_type.data.attributes.name === testType || testType === 'All')
+        (t.language === language || language === 'All') &&
+        (t.level === level || level === 'All') &&
+        (t.test_type === testType || testType === 'All')
       );
     });
     setTestsDisplay(tempTestsDisplay);
   }, [language, level, testType]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const selectTest = (test: Test) => {
-    console.log('test:', test);
+  const selectTest = (test: DisplayTest) => {
     setCurrentTest(test);
     navigate('/test');
   };
@@ -82,30 +91,26 @@ const Tests = () => {
               <TableCell>language</TableCell>
               <TableCell align="left">level</TableCell>
               <TableCell align="left">test type</TableCell>
+              <TableCell align="left">title</TableCell>
               <TableCell align="left"></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {testsDisplay.map((test) => (
+            {testsDisplay.map((test: DisplayTest) => (
               <TableRow
-                key={test.attributes.title + test.attributes.language.data.attributes.name}
+                key={test.title + test.language}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {test.attributes.language.data.attributes.name}
+                  {test.language}
                 </TableCell>
-                <TableCell align="left">{test.attributes.level.data.attributes.name}</TableCell>
-                <TableCell align="left">{test.attributes.test_type.data.attributes.name}</TableCell>
+                <TableCell align="left">{test.level}</TableCell>
+                <TableCell align="left">{test.test_type}</TableCell>
+                <TableCell align="left">{test.title}</TableCell>
                 <TableCell align="left">
-                  {/* <Link
-                    to={{
-                      pathname: `/test/${test.id}`,
-                    }}
-                  > */}
                   <Button variant="contained" onClick={() => selectTest(test)}>
                     View
                   </Button>
-                  {/* </Link> */}
                 </TableCell>
               </TableRow>
             ))}

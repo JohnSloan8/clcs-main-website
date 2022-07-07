@@ -9,6 +9,7 @@ enum Pages {
   Team,
   Contact,
   Search,
+  Test,
   NotFound,
 }
 

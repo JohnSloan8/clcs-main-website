@@ -10,8 +10,11 @@ import { useApiURL, useCurrentTest } from '@/store/search';
 
 const Dictation = () => {
   const { currentTest } = useCurrentTest();
-  const apiMediaURL = useApiURL() + currentTest.attributes.recording.data.attributes.url.slice(1);
 
+  let apiMediaURL = useApiURL();
+  if (currentTest.url !== undefined) {
+    apiMediaURL += currentTest.url.slice(1);
+  }
   useEffect(() => {
     console.log('in effect');
   }, []);
@@ -23,12 +26,14 @@ const Dictation = () => {
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Recording
           </Typography>
-          <CenteredFlexBox>
-            <audio controls src={apiMediaURL}>
-              Your browser does not support the
-              <code>audio</code> element.
-            </audio>
-          </CenteredFlexBox>
+          {apiMediaURL !== '' && (
+            <CenteredFlexBox>
+              <audio controls src={apiMediaURL}>
+                Your browser does not support the
+                <code>audio</code> element.
+              </audio>
+            </CenteredFlexBox>
+          )}
         </CardContent>
       </Card>
       <Card sx={{ m: 2 }}>
@@ -36,7 +41,7 @@ const Dictation = () => {
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Answer
           </Typography>
-          <Typography variant="body1">{currentTest.attributes.text}</Typography>
+          <Typography variant="body1">{currentTest.text}</Typography>
         </CardContent>
       </Card>
     </Container>

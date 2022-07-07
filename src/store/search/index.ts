@@ -1,5 +1,7 @@
 import { atom, useRecoilState, useRecoilValue } from 'recoil';
 
+import DisplayTest from '@/models/DisplayTest';
+
 const languagesState = atom({
   key: 'languagesState',
   default: ['All'],
@@ -32,12 +34,7 @@ const testTypeState = atom({
 
 const testsState = atom({
   key: 'testsState',
-  default: [],
-});
-
-const testsDisplayState = atom({
-  key: 'testsDisplayState',
-  default: [],
+  default: [] as DisplayTest[],
 });
 
 const apiURLState = atom({
@@ -47,7 +44,21 @@ const apiURLState = atom({
 
 const currentTestState = atom({
   key: 'currentTesttate',
-  default: {},
+  default: {
+    id: 1,
+    text: 'e',
+    blanks: 'e',
+    title: 'e',
+    language: 'e',
+    level: 'e',
+    test_type: 'e',
+    url: 'e',
+  } as DisplayTest,
+});
+
+const testsDisplayState = atom({
+  key: 'testsDisplayState',
+  default: [] as DisplayTest[],
 });
 
 function useLanguages() {

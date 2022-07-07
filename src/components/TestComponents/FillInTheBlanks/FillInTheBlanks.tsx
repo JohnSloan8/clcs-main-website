@@ -21,9 +21,9 @@ const FillInTheBlanks = () => {
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Exercise
           </Typography>
-          <Typography variant="body1">
-            {currentTest.attributes.blanks.replaceAll('#', '_')}
-          </Typography>
+          {currentTest.blanks !== undefined && (
+            <Typography variant="body1">{currentTest.blanks.replaceAll('#', '_')}</Typography>
+          )}
         </CardContent>
       </Card>
       <Card sx={{ m: 2 }}>
@@ -31,7 +31,7 @@ const FillInTheBlanks = () => {
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Answer
           </Typography>
-          <Typography variant="body1">{currentTest.attributes.text}</Typography>
+          <Typography variant="body1">{currentTest.text}</Typography>
         </CardContent>
       </Card>
     </Container>

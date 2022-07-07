@@ -47,7 +47,7 @@ function Welcome() {
         {/* End hero unit */}
         <Grid container spacing={4}>
           {cards.map((card) => (
-            <Grid item key={card} xs={12} sm={6} md={6}>
+            <Grid item key={card[0]} xs={12} sm={6} md={6}>
               <ClickCard
                 title={card[0]}
                 description={card[1]}

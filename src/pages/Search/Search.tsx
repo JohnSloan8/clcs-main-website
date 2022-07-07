@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -24,16 +26,6 @@ function Search() {
   const { level, setLevel } = useLevel();
   const { testType, setTestType } = useTestType();
 
-  const changeTest = (event) => {
-    if (event.target.name === 'language') {
-      setLanguage(event.target.value);
-    } else if (event.target.name === 'level') {
-      setLevel(event.target.value);
-    } else if (event.target.name === 'test-type') {
-      setTestType(event.target.value);
-    }
-  };
-
   const resetSearch = () => {
     setLanguage('All');
     setLevel('All');
@@ -49,14 +41,13 @@ function Search() {
         </Typography>
       </Container>
       <Container maxWidth="md">
-        <Grid container align="center">
+        <Grid container>
           <Grid item xs={12} sm={4}>
             <SelectTest
               selectFor="language"
               listOfItems={languages}
               currentSelected={language}
               setSelected={setLanguages}
-              onClick={changeTest}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -65,7 +56,6 @@ function Search() {
               listOfItems={levels}
               currentSelected={level}
               setSelected={setLevels}
-              onClick={changeTest}
             />
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -74,7 +64,6 @@ function Search() {
               listOfItems={testTypes}
               currentSelected={testType}
               setSelected={setTestTypes}
-              onClick={changeTest}
             />
           </Grid>
         </Grid>
