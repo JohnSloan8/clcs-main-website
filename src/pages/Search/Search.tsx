@@ -41,32 +41,6 @@ function Search() {
         </Typography>
       </Container>
       <Container maxWidth="md">
-        {/* <Stack container>
-          <Grid item xs={12} sm={4} justifyContent="center">
-            <SelectTest
-              selectFor="language"
-              listOfItems={languages}
-              currentSelected={language}
-              setSelected={setLanguages}
-            />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <SelectTest
-              selectFor="level"
-              listOfItems={levels}
-              currentSelected={level}
-              setSelected={setLevels}
-            />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <SelectTest
-              selectFor="test-type"
-              listOfItems={testTypes}
-              currentSelected={testType}
-              setSelected={setTestTypes}
-            />
-          </Grid>
-        </Grid> */}
         <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
           <SelectTest
             selectFor="language"
