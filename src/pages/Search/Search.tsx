@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 import Meta from '@/components/Meta';
@@ -41,8 +41,8 @@ function Search() {
         </Typography>
       </Container>
       <Container maxWidth="md">
-        <Grid container>
-          <Grid item xs={12} sm={4} align="center">
+        {/* <Stack container>
+          <Grid item xs={12} sm={4} justifyContent="center">
             <SelectTest
               selectFor="language"
               listOfItems={languages}
@@ -50,7 +50,7 @@ function Search() {
               setSelected={setLanguages}
             />
           </Grid>
-          <Grid item xs={12} sm={4} align="center">
+          <Grid item xs={12} sm={4}>
             <SelectTest
               selectFor="level"
               listOfItems={levels}
@@ -58,7 +58,7 @@ function Search() {
               setSelected={setLevels}
             />
           </Grid>
-          <Grid item xs={12} sm={4} align="center">
+          <Grid item xs={12} sm={4}>
             <SelectTest
               selectFor="test-type"
               listOfItems={testTypes}
@@ -66,7 +66,28 @@ function Search() {
               setSelected={setTestTypes}
             />
           </Grid>
-        </Grid>
+        </Grid> */}
+        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
+          <SelectTest
+            selectFor="language"
+            listOfItems={languages}
+            currentSelected={language}
+            setSelected={setLanguages}
+          />
+          <SelectTest
+            selectFor="level"
+            listOfItems={levels}
+            currentSelected={level}
+            setSelected={setLevels}
+          />
+
+          <SelectTest
+            selectFor="test-type"
+            listOfItems={testTypes}
+            currentSelected={testType}
+            setSelected={setTestTypes}
+          />
+        </Stack>
       </Container>
       <Tests />
       <CenteredFlexBox mt={4}>

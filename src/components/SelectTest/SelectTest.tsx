@@ -63,7 +63,7 @@ const SelectTest = ({
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={{ px: 2, display: 'flex', justifyContent: 'center' }}>
       <FormControl>
         <FormLabel>
           <Typography variant="h6" align="center">
