@@ -42,7 +42,7 @@ function Search() {
       </Container>
       <Container maxWidth="md">
         <Grid container>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} align="center">
             <SelectTest
               selectFor="language"
               listOfItems={languages}
@@ -50,7 +50,7 @@ function Search() {
               setSelected={setLanguages}
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} align="center">
             <SelectTest
               selectFor="level"
               listOfItems={levels}
@@ -58,7 +58,7 @@ function Search() {
               setSelected={setLevels}
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} align="center">
             <SelectTest
               selectFor="test-type"
               listOfItems={testTypes}
