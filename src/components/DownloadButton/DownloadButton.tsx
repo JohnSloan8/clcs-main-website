@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import DownloadIcon from '@mui/icons-material/Download';
 import Button from '@mui/material/Button';
 
@@ -33,7 +34,6 @@ const DownloadButton = () => {
     }
 
     // https://www.youtube.com/watch?v=qEhhMZ0ObEw
-    /* eslint-disable  @typescript-eslint/no-explicit-any */
     const doc: any = new jsPDF({
       orientation: 'p',
       unit: 'in',
