@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 
+import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
+import DownloadButton from '@/components/DownloadButton';
 import Meta from '@/components/Meta';
 import CTest from '@/components/TestComponents/CTest';
 import Dictation from '@/components/TestComponents/Dictation';
@@ -32,6 +34,9 @@ function Test() {
         {currentTest.test_type === 'Fill In The Blanks' && <FillInTheBlanks />}{' '}
         {currentTest.test_type === 'Dictation' && <Dictation />}
       </Container>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <DownloadButton />
+      </Box>
     </>
   );
 }
