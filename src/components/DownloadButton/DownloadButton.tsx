@@ -1,4 +1,3 @@
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 import DownloadIcon from '@mui/icons-material/Download';
 import Button from '@mui/material/Button';
 
@@ -34,7 +33,7 @@ const DownloadButton = () => {
     }
 
     // https://www.youtube.com/watch?v=qEhhMZ0ObEw
-    const doc: any = new jsPDF({
+    const doc = new jsPDF({
       orientation: 'p',
       unit: 'in',
       format: 'a4',
@@ -45,29 +44,29 @@ const DownloadButton = () => {
     const width = doc.internal.pageSize.getWidth();
     doc.addImage(tcdLogo, 'PNG', 2, 0.5, 4, 1.3);
     doc.setFontSize(16);
-    doc.text(width / 2, 2, 'Centre for Speech and Communication Studies', { align: 'center' });
+    doc.text('Centre for Speech and Communication Studies', width / 2, 2, { align: 'center' });
     doc.setFontSize(24);
-    doc.text(width / 2, 5, currentTest.title, { align: 'center' });
+    doc.text(currentTest.title, width / 2, 5, { align: 'center' });
     doc.setFontSize(14);
-    doc.text(width / 2, 5.5, `${currentTest.language} - ${currentTest.level}`, { align: 'center' });
-    doc.text(width / 2, 5.75, `${currentTest.test_type}`, { align: 'center' });
+    doc.text(`${currentTest.language} - ${currentTest.level}`, width / 2, 5.5, { align: 'center' });
+    doc.text(`${currentTest.test_type}`, width / 2, 5.75, { align: 'center' });
 
     const addTestPage = (text: string) => {
       doc.setFontSize(14);
       const textlines = doc.splitTextToSize(text, 6.25);
-      doc.text(1, 1 + (verticalOffset + 14 / 36), textlines);
+      doc.text(textlines, 1, 1 + (verticalOffset + 14 / 36));
     };
 
     if (currentTest.blanks) {
       doc.addPage();
       doc.setFontSize(16);
-      doc.text(width / 2, verticalOffset + 14 / 36, 'Test Page', { align: 'center' });
+      doc.text('Test Page', width / 2, verticalOffset + 14 / 36, { align: 'center' });
       addTestPage(currentTest.blanks.replaceAll('~', '_'));
     }
     if (currentTest.text) {
       doc.addPage();
       doc.setFontSize(16);
-      doc.text(width / 2, verticalOffset + 14 / 36, 'Answer Page', { align: 'center' });
+      doc.text('Answer Page', width / 2, verticalOffset + 14 / 36, { align: 'center' });
       addTestPage(currentTest.text);
     }
 
