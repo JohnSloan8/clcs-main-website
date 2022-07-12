@@ -54,7 +54,6 @@ function Search() {
             currentSelected={level}
             setSelected={setLevels}
           />
-
           <SelectTest
             selectFor="test-type"
             listOfItems={testTypes}
@@ -63,8 +62,10 @@ function Search() {
           />
         </Stack>
       </Container>
-      <Tests />
-      <CenteredFlexBox mt={4}>
+      <CenteredFlexBox py={2}>
+        <Tests />
+      </CenteredFlexBox>
+      <CenteredFlexBox pb={4}>
         <Button variant="outlined" size="large" onClick={resetSearch}>
           reset all
         </Button>

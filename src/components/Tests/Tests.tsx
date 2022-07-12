@@ -36,7 +36,7 @@ const Tests = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const apiURL = apiURLBase + 'tests?populate=%2A';
+    const apiURL = apiURLBase + 'tests?pagination[pageSize]=2000&populate=%2A';
     const getData = () => {
       axios.get(apiURL).then((data) => {
         const tempArray: DisplayTest[] = [];
@@ -56,6 +56,7 @@ const Tests = () => {
           };
           tempArray.push(newDisplayTestObject);
         });
+        console.log('all tests:', tempArray);
         setTests(tempArray);
         setTestsDisplay(tempArray);
       });
@@ -98,7 +99,7 @@ const Tests = () => {
           <TableBody>
             {testsDisplay.map((test: DisplayTest) => (
               <TableRow
-                key={test.title + test.language}
+                key={test.title + test.language + test.level}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
