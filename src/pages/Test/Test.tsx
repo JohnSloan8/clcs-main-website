@@ -16,27 +16,43 @@ function Test() {
 
   useEffect(() => {
     console.log('currentTest:', currentTest);
-  });
+  }, [currentTest]);
 
   return (
     <>
       <Meta title="test" />
-      <Container maxWidth="sm" sx={{ pt: 4 }}>
-        <Typography variant="h4" align="center" color="text.primary" gutterBottom>
-          {currentTest.title}
-        </Typography>
-        <Typography component="p" variant="body1" align="center" color="text.primary" gutterBottom>
-          {currentTest.language} {currentTest.level} {currentTest.test_type}{' '}
-        </Typography>
-      </Container>
-      <Container maxWidth="md">
-        {currentTest.test_type === 'C-Test' && <CTest />}
-        {currentTest.test_type === 'Fill In The Blanks' && <FillInTheBlanks />}{' '}
-        {currentTest.test_type === 'Dictation' && <Dictation />}
-      </Container>
-      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-        <DownloadButton />
-      </Box>
+      {currentTest.id === 1 ? (
+        <Container maxWidth="sm" sx={{ pt: 4 }}>
+          <Typography variant="h4" align="center" color="text.primary" gutterBottom>
+            No test selected
+          </Typography>
+        </Container>
+      ) : (
+        <>
+          <Container maxWidth="sm" sx={{ pt: 4 }}>
+            <Typography variant="h4" align="center" color="text.primary" gutterBottom>
+              {currentTest.title}
+            </Typography>
+            <Typography
+              component="p"
+              variant="body1"
+              align="center"
+              color="text.primary"
+              gutterBottom
+            >
+              {currentTest.language} {currentTest.level} {currentTest.test_type}{' '}
+            </Typography>
+          </Container>
+          <Container maxWidth="md">
+            {currentTest.test_type === 'C-Test' && <CTest />}
+            {currentTest.test_type === 'Fill In The Blanks' && <FillInTheBlanks />}{' '}
+            {currentTest.test_type === 'Dictation' && <Dictation />}
+          </Container>
+          <Box sx={{ display: 'flex', justifyContent: 'center', py: 2 }}>
+            <DownloadButton />
+          </Box>
+        </>
+      )}
     </>
   );
 }
