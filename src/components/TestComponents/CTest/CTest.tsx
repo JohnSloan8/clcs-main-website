@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
+import MarkdownToHTML from '@/components/TestComponents/MarkdownToHTML';
 import { useCurrentTest } from '@/store/search';
 
 const CTest = () => {
@@ -22,7 +23,7 @@ const CTest = () => {
             Exercise
           </Typography>
           {currentTest.blanks !== undefined && (
-            <Typography variant="body1">{currentTest.blanks.replaceAll('#', '_')}</Typography>
+            <MarkdownToHTML markdown={currentTest.blanks.replaceAll('~', '_')} />
           )}
         </CardContent>
       </Card>
@@ -31,7 +32,7 @@ const CTest = () => {
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Answer
           </Typography>
-          <Typography variant="body1">{currentTest.text}</Typography>
+          {currentTest.text !== undefined && <MarkdownToHTML markdown={currentTest.text} />}
         </CardContent>
       </Card>
     </Container>
