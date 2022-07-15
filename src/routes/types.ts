@@ -9,6 +9,9 @@ enum Pages {
   Team,
   Contact,
   Search,
+  SignIn,
+  Register,
+  Message,
   Test,
   NotFound,
 }
@@ -16,6 +19,7 @@ enum Pages {
 type PathRouteCustomProps = {
   title?: string;
   component: FC;
+  showWhenSignedIn?: boolean;
   icon?: FC<SvgIconProps>;
 };
 

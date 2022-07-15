@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -9,6 +10,7 @@ import Meta from '@/components/Meta';
 import SelectTest from '@/components/SelectTest';
 import Tests from '@/components/Tests';
 import { CenteredFlexBox } from '@/components/styled';
+import { useAuth } from '@/store/auth';
 import {
   useLanguage,
   useLanguages,
@@ -25,14 +27,15 @@ function Search() {
   const { language, setLanguage } = useLanguage();
   const { level, setLevel } = useLevel();
   const { testType, setTestType } = useTestType();
-
+  const { auth } = useAuth();
+  // const navigate = useNavigate();
   const resetSearch = () => {
     setLanguage('All');
     setLevel('All');
     setTestType('All');
   };
 
-  return (
+  return auth ? (
     <>
       <Meta title="search" />
       <Container maxWidth="sm" sx={{ pt: 4 }}>
@@ -71,6 +74,8 @@ function Search() {
         </Button>
       </CenteredFlexBox>
     </>
+  ) : (
+    <Navigate to="/signIn" replace={true} />
   );
 }
 

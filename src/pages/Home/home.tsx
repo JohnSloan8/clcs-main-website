@@ -8,12 +8,15 @@ import Typography from '@mui/material/Typography';
 
 import ClickCard from '@/components/ClickCard';
 import Meta from '@/components/Meta';
+import { useAuth, useRegistered } from '@/store/auth';
 
 function Welcome() {
   // const isPortrait = useOrientation();
 
   // const width = isPortrait ? '40%' : '30%';
   // const height = isPortrait ? '30%' : '40%';
+  const { auth } = useAuth();
+  const { registered } = useRegistered();
   const cards = [
     ['ABOUT', 'Learn about our tests'],
     ['SEARCH', 'Find a specific test'],
@@ -59,10 +62,21 @@ function Welcome() {
           ))}
         </Grid>
       </Container>
-      <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">
-        <Button variant="contained">Register for Access</Button>
-        {/* <Button variant="outlined">Secondary action</Button> */}
-      </Stack>
+      {!registered && (
+        <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">
+          {!auth && (
+            <Button
+              variant="contained"
+              sx={{ width: 100 }}
+              onClick={() => {
+                navigate('/Register');
+              }}
+            >
+              Register
+            </Button>
+          )}
+        </Stack>
+      )}
     </>
   );
 }
