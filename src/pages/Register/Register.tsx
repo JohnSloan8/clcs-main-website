@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
@@ -17,23 +17,43 @@ const Register = () => {
   const navigate = useNavigate();
   const { setRegistered } = useRegistered();
   const { regReq, setRegReq } = useRegReq();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [regButtonVisible, setRegButtonVisible] = useState(true);
   const form = useRef();
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const thisForm = form.current!;
-    console.log('thisForm:', thisForm);
     event.preventDefault();
-    setRegReq(false);
-    emailjs.sendForm('clcs_testing_access', 'template_bbz84s3', thisForm, 'zHWEy4oaID1-c0hRN').then(
-      (result) => {
-        setRegistered(true);
-        navigate('/message');
-        console.log(result.text);
-      },
-      (error) => {
-        console.log(error.text);
-      },
-    );
+    if (!validateEmail() || !validateName()) {
+      alert('You must provide a name at least 3 letters long and a valid email address');
+    } else {
+      setRegButtonVisible(false);
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      const thisForm = form.current!;
+      setRegReq(false);
+      emailjs
+        .sendForm('clcs_testing_access', 'template_bbz84s3', thisForm, 'zHWEy4oaID1-c0hRN')
+        .then(
+          (result) => {
+            setRegistered(true);
+            navigate('/message');
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          },
+        );
+    }
+  };
+
+  const validateEmail = (): boolean => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  };
+
+  const validateName = (): boolean => {
+    const re = /^[A-Za-z]{3,26}$/;
+    return re.test(name);
   };
 
   return (
@@ -55,6 +75,9 @@ const Register = () => {
             id="username"
             label="Name"
             name="user_name"
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
             autoFocus
           />
           <TextField
@@ -65,10 +88,12 @@ const Register = () => {
             label="Email Address"
             name="user_email"
             autoComplete="email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
           />
           <TextField
             margin="normal"
-            required
             fullWidth
             multiline
             rows={4}
@@ -76,7 +101,7 @@ const Register = () => {
             label="Reason for Request"
             name="message"
           />
-          {!regReq && (
+          {!regReq && regButtonVisible && (
             <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">
               <Button type="submit" variant="contained" sx={{ mt: 3, mb: 2 }}>
                 Request Access

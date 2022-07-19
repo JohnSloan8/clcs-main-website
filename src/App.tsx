@@ -31,8 +31,8 @@ function App() {
         >
           <Pages />
         </FullSizeBox>
-        <Footer />
       </BrowserRouter>
+      <Footer />
     </Fragment>
   );
 }
