@@ -13,7 +13,9 @@ const Dictation = () => {
 
   let apiMediaURL = useApiURL();
   if (currentTest.url !== undefined) {
+    console.log('URL:', currentTest.url);
     apiMediaURL += currentTest.url.slice(1);
+    console.log('apiMediaURL:', apiMediaURL);
   }
   useEffect(() => {
     console.log('in effect');
@@ -28,7 +30,7 @@ const Dictation = () => {
           </Typography>
           {apiMediaURL !== '' && (
             <CenteredFlexBox>
-              <audio controls src={apiMediaURL}>
+              <audio controls src={currentTest.url}>
                 Your browser does not support the
                 <code>audio</code> element.
               </audio>
