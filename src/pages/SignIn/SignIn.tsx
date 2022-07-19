@@ -45,7 +45,8 @@ const SignIn = () => {
         navigate('/search');
       })
       .catch((e) => {
-        console.log('problem:', e);
+        console.log('problem:', e.response.data.error.message);
+        alert(e.response.data.error.message);
       });
   };
 

@@ -19,28 +19,21 @@ const Register = () => {
   const { regReq, setRegReq } = useRegReq();
   const form = useRef();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const thisForm = form.current!;
+    console.log('thisForm:', thisForm);
     event.preventDefault();
-    // const data = new FormData(event.currentTarget);
-    // const formData = {
-    //   user_name: data.get('username'),
-    //   user_email: data.get('email'),
-    //   message: data.get('message'),
-    // };
-    console.log('form.current:', form.current);
     setRegReq(false);
-    emailjs
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      .sendForm('service_ij0cj2e', 'clcs_registration', form.current!, 'd2erGMbibHwxCRqeA')
-      .then(
-        (result) => {
-          setRegistered(true);
-          navigate('/message');
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        },
-      );
+    emailjs.sendForm('clcs_testing_access', 'template_bbz84s3', thisForm, 'zHWEy4oaID1-c0hRN').then(
+      (result) => {
+        setRegistered(true);
+        navigate('/message');
+        console.log(result.text);
+      },
+      (error) => {
+        console.log(error.text);
+      },
+    );
   };
 
   return (
