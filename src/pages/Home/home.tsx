@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -8,6 +9,7 @@ import Typography from '@mui/material/Typography';
 
 import ClickCard from '@/components/ClickCard';
 import Meta from '@/components/Meta';
+import Footer from '@/sections/Footer';
 import { useAuth, useRegistered } from '@/store/auth';
 
 function Welcome() {
@@ -46,7 +48,7 @@ function Welcome() {
         </Typography>
       </Container>
 
-      <Container sx={{ py: 4 }} maxWidth="sm">
+      <Container sx={{ pt: 4, pb: 12 }} maxWidth="sm">
         {/* End hero unit */}
         <Grid container spacing={4}>
           {cards.map((card) => (
@@ -61,22 +63,25 @@ function Welcome() {
             </Grid>
           ))}
         </Grid>
+        {!registered && (
+          <Stack sx={{ pt: 8, pb: 12 }} direction="row" spacing={2} justifyContent="center">
+            {!auth && (
+              <Button
+                variant="contained"
+                sx={{ width: 100 }}
+                onClick={() => {
+                  navigate('/Register');
+                }}
+              >
+                Register
+              </Button>
+            )}
+          </Stack>
+        )}
       </Container>
-      {!registered && (
-        <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">
-          {!auth && (
-            <Button
-              variant="contained"
-              sx={{ width: 100 }}
-              onClick={() => {
-                navigate('/Register');
-              }}
-            >
-              Register
-            </Button>
-          )}
-        </Stack>
-      )}
+      <Box sx={{ position: 'absolute', bottom: 0, width: '100%' }}>
+        <Footer />
+      </Box>
     </>
   );
 }

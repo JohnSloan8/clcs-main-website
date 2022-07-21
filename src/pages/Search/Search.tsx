@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
@@ -10,6 +11,7 @@ import Meta from '@/components/Meta';
 import SelectTest from '@/components/SelectTest';
 import Tests from '@/components/Tests';
 import { CenteredFlexBox } from '@/components/styled';
+import Footer from '@/sections/Footer';
 import { useAuth } from '@/store/auth';
 import {
   useLanguage,
@@ -36,7 +38,7 @@ function Search() {
   };
 
   return auth ? (
-    <>
+    <Box>
       <Meta title="search" />
       <Container maxWidth="sm" sx={{ pt: 4 }}>
         <Typography component="h1" variant="h4" align="center" color="text.primary" gutterBottom>
@@ -68,12 +70,13 @@ function Search() {
       <CenteredFlexBox py={2}>
         <Tests />
       </CenteredFlexBox>
-      <CenteredFlexBox pb={4}>
+      <CenteredFlexBox pb={4} mb={8}>
         <Button variant="outlined" size="large" onClick={resetSearch}>
           reset all
         </Button>
       </CenteredFlexBox>
-    </>
+      <Footer />
+    </Box>
   ) : (
     <Navigate to="/signIn" replace={true} />
   );

@@ -1,7 +1,9 @@
+import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import Meta from '@/components/Meta';
+import Footer from '@/sections/Footer';
 
 function Contact() {
   return (
@@ -12,6 +14,9 @@ function Contact() {
           Contact
         </Typography>
       </Container>
+      <Box sx={{ position: 'absolute', bottom: 0, width: '100%' }}>
+        <Footer />
+      </Box>
     </>
   );
 }

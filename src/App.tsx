@@ -7,7 +7,6 @@ import { FullSizeBox } from '@/components/styled';
 import { withErrorHandler } from '@/error-handling';
 import AppErrorBoundaryFallback from '@/error-handling/fallbacks/App';
 import Pages from '@/routes/Pages';
-import Footer from '@/sections/Footer';
 import Header from '@/sections/Header';
 // import HotKeys from '@/sections/HotKeys';
 // import Notifications from '@/sections/Notifications';
@@ -32,7 +31,6 @@ function App() {
           <Pages />
         </FullSizeBox>
       </BrowserRouter>
-      <Footer />
     </Fragment>
   );
 }
