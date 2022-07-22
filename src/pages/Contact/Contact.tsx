@@ -70,7 +70,7 @@ const Contact = () => {
           Contact
         </Typography>
         <Typography component="p" variant="body2" align="center" color="text.primary" gutterBottom>
-          Contact us by emailing clcstestin79@gmail.com, or by filling in the form below.
+          Contact us by emailing clcstesting79@gmail.com, or by filling in the form below.
         </Typography>
         {!conReq && conButtonVisible && (
           <Box component="form" ref={form} onSubmit={handleSubmit} noValidate sx={{ mt: 4 }}>
