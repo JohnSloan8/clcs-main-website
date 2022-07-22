@@ -37,7 +37,7 @@ const Contact = () => {
         .then(
           (result) => {
             setContacted(true);
-            navigate('/message');
+            navigate('/contactSent');
             console.log(result.text);
           },
           (error) => {

@@ -46,9 +46,15 @@ const Tests = () => {
             text: d.attributes.text,
             blanks: d.attributes.blanks,
             title: d.attributes.title,
-            language: d.attributes.language.data.attributes.name,
-            level: d.attributes.level.data.attributes.name,
-            test_type: d.attributes.test_type.data.attributes.name,
+            language:
+              d.attributes.language.data !== null
+                ? d.attributes.language.data.attributes.name
+                : 'Universal',
+            level: d.attributes.level.data !== null ? d.attributes.level.data.attributes.name : 'U',
+            test_type:
+              d.attributes.test_type.data !== null
+                ? d.attributes.test_type.data.attributes.name
+                : 'U',
             url:
               d.attributes.recording.data !== null
                 ? d.attributes.recording.data.attributes.url

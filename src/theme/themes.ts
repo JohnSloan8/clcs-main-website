@@ -47,7 +47,7 @@ const themes: Record<Themes, ThemeOptions> = {
       primary: {
         main: blue[800],
         dark: blue[900],
-        light: blue[200],
+        light: blue[50],
       },
       secondary: {
         main: deepOrange[800],
