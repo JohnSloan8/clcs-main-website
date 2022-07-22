@@ -37,7 +37,6 @@ function About() {
         <Card sx={{ mx: 2, my: 5, p: 0 }}>
           <CardMedia
             component="img"
-            // height="140"
             image="https://clcsawsbucket.s3.eu-west-1.amazonaws.com/clcs_website_image_3a4bd7493f.jpg"
             alt="students studying"
           />

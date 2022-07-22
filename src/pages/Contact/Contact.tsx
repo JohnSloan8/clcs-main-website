@@ -33,7 +33,7 @@ const Contact = () => {
       const thisForm = form.current!;
       setConReq(false);
       emailjs
-        .sendForm('clcs_testing_access', 'template_bbz84s3', thisForm, 'zHWEy4oaID1-c0hRN')
+        .sendForm('clcs_testing_access', 'template_70hyoo9', thisForm, 'zHWEy4oaID1-c0hRN')
         .then(
           (result) => {
             setContacted(true);
