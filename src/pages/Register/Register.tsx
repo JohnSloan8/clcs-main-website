@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import emailjs from '@emailjs/browser';
 
 import Meta from '@/components/Meta';
+import Footer from '@/sections/Footer';
 import { useRegReq, useRegistered } from '@/store/auth';
 
 const Register = () => {
@@ -40,7 +41,12 @@ const Register = () => {
             console.log(result.text);
           },
           (error) => {
-            console.log(error.text);
+            alert(
+              'Error occured. Sorry about this. Please try again later or get in touch with us at clcstesting79@gmail.com',
+            );
+            setRegReq(true);
+            setRegButtonVisible(true);
+            console.log('error:', error);
           },
         );
     }
@@ -52,7 +58,7 @@ const Register = () => {
   };
 
   const validateName = (): boolean => {
-    const re = /^[A-Za-z]{3,26}$/;
+    const re = /^[A-Za-z\s]{3,26}$/;
     return re.test(name);
   };
 
@@ -67,50 +73,54 @@ const Register = () => {
           To gain access to tests from CLCS, please fill out the following form. We will get back to
           you as soon as possible.
         </Typography>
-        <Box component="form" ref={form} onSubmit={handleSubmit} noValidate sx={{ mt: 4 }}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="username"
-            label="Name"
-            name="user_name"
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-            autoFocus
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="user_email"
-            autoComplete="email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <TextField
-            margin="normal"
-            fullWidth
-            multiline
-            rows={4}
-            id="message"
-            label="Reason for Request"
-            name="message"
-          />
-          {!regReq && regButtonVisible && (
+        {!regReq && regButtonVisible && (
+          <Box component="form" ref={form} onSubmit={handleSubmit} noValidate sx={{ mt: 4 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="Name"
+              name="user_name"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="user_email"
+              autoComplete="email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+            <TextField
+              margin="normal"
+              fullWidth
+              multiline
+              rows={4}
+              id="message"
+              label="Reason for Request"
+              name="message"
+            />
+
             <Stack sx={{ pt: 4 }} direction="row" spacing={2} justifyContent="center">
               <Button type="submit" variant="contained" sx={{ mt: 3, mb: 2 }}>
                 Request Access
               </Button>
             </Stack>
-          )}
-        </Box>
+          </Box>
+        )}
         {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
+      <Box sx={{ position: 'absolute', bottom: 0, width: '100%' }}>
+        <Footer />
+      </Box>
     </>
   );
 };

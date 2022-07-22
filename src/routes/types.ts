@@ -12,6 +12,7 @@ enum Pages {
   SignIn,
   Register,
   Message,
+  ContactSent,
   Test,
   NotFound,
 }

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
@@ -12,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import axios from 'axios';
 
 import Meta from '@/components/Meta';
+import Footer from '@/sections/Footer';
 import { useAuth } from '@/store/auth';
 
 // function Copyright(props: any) {
@@ -30,9 +32,11 @@ import { useAuth } from '@/store/auth';
 const SignIn = () => {
   const navigate = useNavigate();
   const { setAuth } = useAuth();
+  const [signInButtonVisible, setSignInButtonVisible] = useState(true);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setSignInButtonVisible(false);
     const data = new FormData(event.currentTarget);
     const formData = {
       identifier: 'admin',
@@ -47,6 +51,7 @@ const SignIn = () => {
       .catch((e) => {
         console.log('problem:', e.response.data.error.message);
         alert(e.response.data.error.message);
+        setSignInButtonVisible(true);
       });
   };
 
@@ -57,36 +62,41 @@ const SignIn = () => {
         <Typography component="h1" variant="h4" align="center" color="text.primary" gutterBottom>
           Access Tests
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 4 }}>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-            Go
-          </Button>
-          <Grid container>
-            <Grid item>
-              <Link
-                component="button"
-                variant="body2"
-                onClick={() => {
-                  navigate('/Register');
-                }}
-              >
-                {"Don't have access? Request Permission"}
-              </Link>
+        {signInButtonVisible && (
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 4 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
+              Go
+            </Button>
+            <Grid container>
+              <Grid item>
+                <Link
+                  component="button"
+                  variant="body2"
+                  onClick={() => {
+                    navigate('/Register');
+                  }}
+                >
+                  {"Don't have access? Request Permission"}
+                </Link>
+              </Grid>
             </Grid>
-          </Grid>
-        </Box>
+          </Box>
+        )}
         {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
+      <Box sx={{ position: 'absolute', bottom: 0, width: '100%' }}>
+        <Footer />
+      </Box>
     </>
   );
 };

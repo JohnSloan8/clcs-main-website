@@ -65,6 +65,13 @@ const routes: Routes = {
     icon: undefined,
     showWhenSignedIn: true,
   },
+  [Pages.ContactSent]: {
+    component: asyncComponentLoader(() => import('@/pages/ContactSent')),
+    path: '/contactSent',
+    title: 'ContactSent',
+    icon: undefined,
+    showWhenSignedIn: true,
+  },
   [Pages.Test]: {
     component: asyncComponentLoader(() => import('@/pages/Test')),
     path: '/test',

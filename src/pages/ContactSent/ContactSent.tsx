@@ -10,20 +10,17 @@ import Typography from '@mui/material/Typography';
 import Meta from '@/components/Meta';
 import Footer from '@/sections/Footer';
 
-const Message = () => {
+const ContactSent = () => {
   const navigate = useNavigate();
   return (
     <>
       <Meta title="about" />
       <Container maxWidth="sm" sx={{ pt: 4 }}>
         <Typography component="h1" variant="h4" align="center" color="text.primary" gutterBottom>
-          Application Successful
+          Message Sent
         </Typography>
         <Typography component="p" variant="body2" align="center" color="text.primary" gutterBottom>
-          Your application will be reviewed and you will receive an email to confirm.
-        </Typography>
-        <Typography component="p" variant="body2" align="center" color="text.primary" gutterBottom>
-          If you do not receive a response within a few days, please email clcstesting79@gmail.com
+          Thank you for contacting us. We will get back to you as soon as possible.
         </Typography>
       </Container>
       <Stack sx={{ pt: 4, pb: 12 }} direction="row" spacing={2} justifyContent="center">
@@ -44,4 +41,4 @@ const Message = () => {
   );
 };
 
-export default Message;
+export default ContactSent;
