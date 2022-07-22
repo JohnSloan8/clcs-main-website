@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
 
 import Avatar from '@mui/material/Avatar';
@@ -23,7 +24,7 @@ function Team() {
   useEffect(() => {
     axios.get(apiURL).then((data) => {
       console.log('data.data.data:', data.data.data);
-      const sortedData = data.data.data.sort((a, b) => (a.id > b.id ? 1 : -1));
+      const sortedData = data.data.data.sort((a: any, b: any) => (a.id > b.id ? 1 : -1));
       setPeople(sortedData);
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -37,7 +38,7 @@ function Team() {
         </Typography>
       </Container>
       <Container maxWidth="md" sx={{ mb: 8, mt: 4 }}>
-        {people.map((p, i) => (
+        {people.map((p: any, i) => (
           <Card key={i} sx={{ m: 2, pt: 2, px: 2 }}>
             <CardHeader
               sx={{ p: 1 }}

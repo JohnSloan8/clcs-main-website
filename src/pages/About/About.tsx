@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
 
 import Box from '@mui/material/Box';
@@ -41,7 +42,7 @@ function About() {
             alt="students studying"
           />
         </Card>
-        {about.map((a, i) => (
+        {about.map((a: any, i) => (
           <Card key={i} sx={{ m: 2, p: 3 }}>
             <CardContent>
               <MarkdownToHTML markdown={a.attributes.Blurb} />
