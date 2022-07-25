@@ -43,11 +43,7 @@ function Team() {
             <CardHeader
               sx={{ p: 1 }}
               avatar={
-                <Avatar
-                  alt={p.attributes.Picture.data.attributes.alternativeText}
-                  src={p.attributes.Picture.data.attributes.url}
-                  sx={{ width: 64, height: 64 }}
-                />
+                <Avatar alt="avatar" src={p.attributes.ImageURL} sx={{ width: 64, height: 64 }} />
               }
               title={p.attributes.Name}
               subheader={p.attributes.Email}

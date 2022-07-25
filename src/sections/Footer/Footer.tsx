@@ -25,22 +25,30 @@ function Footer() {
         <Grid container spacing={2}>
           <Grid item lg={3} sm={6} xs={12}>
             <Grid container justifyContent="center" alignItems="center">
-              <img src={rialtasLogo} height={50} alt="genie" />
+              <a href="https://www.tcd.ie/">
+                <img src={tcdLogo} height={50} alt="genie" />
+              </a>
             </Grid>
           </Grid>
           <Grid item lg={3} sm={6} xs={12}>
             <Grid container justifyContent="center" alignItems="center">
-              <img src={heaLogo} height={50} alt="genie" />
+              <a href="https://www.gov.ie/en/">
+                <img src={rialtasLogo} height={50} alt="genie" />
+              </a>
             </Grid>
           </Grid>
           <Grid item lg={3} sm={6} xs={12}>
             <Grid container justifyContent="center" alignItems="center">
-              <img src={forumLogo} height={50} alt="genie" />
+              <a href="https://www.teachingandlearning.ie/">
+                <img src={heaLogo} height={50} alt="genie" />
+              </a>
             </Grid>
           </Grid>
           <Grid item lg={3} sm={6} xs={12}>
             <Grid container justifyContent="center" alignItems="center">
-              <img src={tcdLogo} height={50} alt="genie" />
+              <a href="https://hea.ie/">
+                <img src={forumLogo} height={50} alt="genie" />
+              </a>
             </Grid>
           </Grid>
         </Grid>

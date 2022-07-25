@@ -44,7 +44,7 @@ function Welcome() {
       <Container maxWidth="md" sx={{ backgroundColor: 'primary.light', py: 4, my: 6 }}>
         <Container>
           <Typography component="h1" variant="h5" align="center" color="text.primary" gutterBottom>
-            Foreign Language Tests
+            Language Tests
           </Typography>
           <Typography variant="body1" align="center" color="text.secondary" paragraph>
             Access a suite of online language testing tools for a range of European and Asian
