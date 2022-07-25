@@ -55,10 +55,7 @@ const Tests = () => {
               d.attributes.test_type.data !== null
                 ? d.attributes.test_type.data.attributes.name
                 : 'U',
-            url:
-              d.attributes.recording.data !== null
-                ? d.attributes.recording.data.attributes.url
-                : 'none',
+            url: d.attributes.recordingURL !== null ? d.attributes.recordingURL : 'none',
           };
           tempArray.push(newDisplayTestObject);
         });
