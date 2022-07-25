@@ -10,6 +10,7 @@ import Meta from '@/components/Meta';
 import CTest from '@/components/TestComponents/CTest';
 import Dictation from '@/components/TestComponents/Dictation';
 import FillInTheBlanks from '@/components/TestComponents/FillInTheBlanks';
+import Footer from '@/sections/Footer';
 import { useAuth } from '@/store/auth';
 import { useCurrentTest } from '@/store/search';
 
@@ -45,8 +46,11 @@ function Test() {
             {currentTest.test_type === 'Fill In The Blanks' && <FillInTheBlanks />}{' '}
             {currentTest.test_type === 'Dictation' && <Dictation />}
           </Container>
-          <Box sx={{ display: 'flex', justifyContent: 'center', py: 2 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', pt: 8, pb: 12 }}>
             <DownloadButton />
+          </Box>
+          <Box sx={{ position: 'relative', width: '100%' }}>
+            <Footer />
           </Box>
         </>
       ) : (

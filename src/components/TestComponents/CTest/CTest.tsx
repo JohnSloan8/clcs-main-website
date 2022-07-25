@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
 import MarkdownToHTML from '@/components/TestComponents/MarkdownToHTML';
@@ -16,9 +16,9 @@ const CTest = () => {
   }, []);
 
   return (
-    <Container maxWidth="md">
+    <Box maxWidth="md" id="mainCont">
       <Card sx={{ m: 2 }}>
-        <CardContent>
+        <CardContent id="exercise">
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Exercise
           </Typography>
@@ -28,14 +28,14 @@ const CTest = () => {
         </CardContent>
       </Card>
       <Card sx={{ m: 2 }}>
-        <CardContent>
+        <CardContent id="answer">
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Answer
           </Typography>
           {currentTest.text !== undefined && <MarkdownToHTML markdown={currentTest.text} />}
         </CardContent>
       </Card>
-    </Container>
+    </Box>
   );
 };
 

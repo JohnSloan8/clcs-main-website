@@ -18,7 +18,7 @@ const FillInTheBlanks = () => {
   return (
     <Container maxWidth="md">
       <Card sx={{ m: 2 }}>
-        <CardContent>
+        <CardContent id="exercise">
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Exercise
           </Typography>
@@ -28,7 +28,7 @@ const FillInTheBlanks = () => {
         </CardContent>
       </Card>
       <Card sx={{ m: 2 }}>
-        <CardContent>
+        <CardContent id="answer">
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Answer
           </Typography>

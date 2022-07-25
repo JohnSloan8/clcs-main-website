@@ -24,7 +24,7 @@ const Dictation = () => {
   return (
     <Container maxWidth="md">
       <Card sx={{ m: 2 }}>
-        <CardContent>
+        <CardContent id="recording">
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Recording
           </Typography>
@@ -39,7 +39,7 @@ const Dictation = () => {
         </CardContent>
       </Card>
       <Card sx={{ m: 2 }}>
-        <CardContent>
+        <CardContent id="answer">
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Answer
           </Typography>
