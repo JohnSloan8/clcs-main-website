@@ -8,8 +8,6 @@ import { jsPDF } from 'jspdf';
 
 import { useCurrentTest } from '@/store/search';
 
-import './NanumGothic-Regular-normal.js';
-
 const DownloadButton = () => {
   const { currentTest } = useCurrentTest();
 
