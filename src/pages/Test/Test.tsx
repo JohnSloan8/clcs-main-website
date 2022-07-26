@@ -13,6 +13,7 @@ import FillInTheBlanks from '@/components/TestComponents/FillInTheBlanks';
 import Footer from '@/sections/Footer';
 import { useAuth } from '@/store/auth';
 import { useCurrentTest } from '@/store/search';
+import isMobile from '@/utils/is-mobile';
 
 function Test() {
   const { currentTest } = useCurrentTest();
@@ -20,6 +21,7 @@ function Test() {
 
   useEffect(() => {
     console.log('currentTest:', currentTest);
+    console.log('isMobile:', isMobile);
   }, [currentTest]);
 
   return (
@@ -47,7 +49,7 @@ function Test() {
             {currentTest.test_type === 'Dictation' && <Dictation />}
           </Container>
           <Box sx={{ display: 'flex', justifyContent: 'center', pt: 8, pb: 12 }}>
-            <DownloadButton />
+            {!isMobile && <DownloadButton />}
           </Box>
           <Box sx={{ position: 'relative', width: '100%' }}>
             <Footer />
