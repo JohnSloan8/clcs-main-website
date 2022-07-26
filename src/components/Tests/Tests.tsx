@@ -59,7 +59,6 @@ const Tests = () => {
           };
           tempArray.push(newDisplayTestObject);
         });
-        console.log('all tests:', tempArray);
         setTests(tempArray);
         setTestsDisplay(tempArray);
       });
@@ -70,7 +69,6 @@ const Tests = () => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    console.log('updating test list');
     const tempTestsDisplay = tests.filter((t: DisplayTest) => {
       return (
         (t.language === language || language === 'All') &&

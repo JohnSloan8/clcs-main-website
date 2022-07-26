@@ -23,7 +23,6 @@ function Team() {
 
   useEffect(() => {
     axios.get(apiURL).then((data) => {
-      console.log('data.data.data:', data.data.data);
       const sortedData = data.data.data.sort((a: any, b: any) => (a.id > b.id ? 1 : -1));
       setPeople(sortedData);
     });

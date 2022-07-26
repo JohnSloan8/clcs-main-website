@@ -14,7 +14,6 @@ const DownloadButton = () => {
   const { currentTest } = useCurrentTest();
 
   const downloadFileFromURL = (url: string) => {
-    console.log('downloading from:', url);
     const fullURL = url;
     new JsFileDownloader({
       url: fullURL,
@@ -35,7 +34,6 @@ const DownloadButton = () => {
       })
       .then(() => {
         if (currentTest.test_type !== 'Dictation') {
-          console.log('in current test blanks');
           html2canvas(document.querySelector('#exercise') as HTMLElement)
             .then((canvas2) => {
               document.body.appendChild(canvas2);
@@ -51,7 +49,6 @@ const DownloadButton = () => {
   };
 
   const generatePDF = () => {
-    console.log('currentTest:', currentTest);
     if (currentTest.url) {
       console.log('downloading Audio File');
       downloadFileFromURL(currentTest.url);
@@ -110,8 +107,6 @@ const DownloadButton = () => {
       // doc.text('Answer Page', width / 2, verticalOffset + 14 / 36, { align: 'center' });
       addTestPage();
     }
-
-    doc.save(currentTest.title);
   };
 
   return (

@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Container from '@mui/material/Container';
@@ -13,13 +11,8 @@ const Dictation = () => {
 
   let apiMediaURL = useApiURL();
   if (currentTest.url !== undefined) {
-    console.log('URL:', currentTest.url);
     apiMediaURL += currentTest.url.slice(1);
-    console.log('apiMediaURL:', apiMediaURL);
   }
-  useEffect(() => {
-    console.log('in effect');
-  }, []);
 
   return (
     <Container maxWidth="md">

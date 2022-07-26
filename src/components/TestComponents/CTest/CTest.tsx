@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -10,10 +8,6 @@ import { useCurrentTest } from '@/store/search';
 
 const CTest = () => {
   const { currentTest } = useCurrentTest();
-
-  useEffect(() => {
-    console.log('in effect');
-  }, []);
 
   return (
     <Box maxWidth="md" id="mainCont">

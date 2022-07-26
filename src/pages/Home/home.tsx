@@ -25,7 +25,6 @@ function Welcome() {
   ];
   const navigate = useNavigate();
   const cardClick = (route: string) => {
-    console.log('route:', route);
     navigate('/' + route.toLowerCase());
   };
   return (

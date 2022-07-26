@@ -35,7 +35,6 @@ const SelectTest = ({
   const { setLevel } = useLevel();
   const { setTestType } = useTestType();
   const changeTest = (event: any) => {
-    console.log('event:', event);
     if (event.target.name === 'language') {
       setLanguage(event.target.value);
     } else if (event.target.name === 'level') {
@@ -46,7 +45,6 @@ const SelectTest = ({
   };
 
   useEffect(() => {
-    console.log('listOfItems:', listOfItems);
     if (listOfItems.length === 1) {
       const apiURL = apiURLBase + selectFor + 's';
       axios.get(apiURL).then((data) => {
@@ -54,7 +52,6 @@ const SelectTest = ({
         data.data.data.forEach((d: any) => {
           tempArray.push(d.attributes.name);
         });
-        console.log('tempArray:', tempArray);
         setSelected(tempArray);
       });
     } else {

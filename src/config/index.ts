@@ -4,14 +4,14 @@ import type { Notifications } from './types';
 
 const title = 'Aladdin';
 
-const email = 'auther-email@gmail.com';
+const email = 'clcstesting79@gmail.com';
 
-const repository = 'https://github.com/suren-atoyan/react-pwa';
+const repository = 'https://github.com/JohnSloan8/clcs-main-website';
 
 const messages = {
   app: {
     crash: {
-      title: 'Oooops... Sorry, I guess, something went wrong. You can:',
+      title: 'Sorry, something has gone wrong...',
       options: {
         email: `contact with author by this email - ${email}`,
         reset: 'Press here to reset the application',
@@ -24,7 +24,7 @@ const messages = {
   images: {
     failed: 'something went wrong during image loading :(',
   },
-  404: 'Hey bro? What are you looking for?',
+  404: "Can't find what you are looking for",
 };
 
 const dateFormat = 'MMMM DD, YYYY';
@@ -50,7 +50,7 @@ const defaultMetaTags = {
   image: '/cover.png',
   description: 'Starter kit for modern web applications',
 };
-const giphy404 = 'https://giphy.com/embed/xTiN0L7EW5trfOvEk0';
+const giphy404 = '';
 
 export {
   loader,

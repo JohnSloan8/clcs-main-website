@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Container from '@mui/material/Container';
@@ -49,6 +50,30 @@ function About() {
             </CardContent>
           </Card>
         ))}
+        <Card sx={{ m: 2, p: 5 }}>
+          <Typography component="h1" variant="body1" color="text.primary" align="left" gutterBottom>
+            This work is licensed under a{' '}
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+              Creative Commons Attribution-NonCommercial 4.0 International License
+            </a>
+          </Typography>
+          <Box
+            sx={{ width: '100%', pt: 2 }}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Box sx={{ width: '120px' }}>
+              <CardActionArea href="http://creativecommons.org/licenses/by-nc/4.0/">
+                <CardMedia
+                  component="img"
+                  image="https://i.creativecommons.org/l/by-nc/4.0/80x15.png"
+                  alt="Creative Commons Licence"
+                />
+              </CardActionArea>
+            </Box>
+          </Box>
+        </Card>
       </Container>
       <Box sx={{ position: 'relative', width: '100%' }}>
         <Footer />
